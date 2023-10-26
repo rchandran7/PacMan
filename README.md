@@ -1,4 +1,4 @@
 # PacMan
-Rohit Chandran
-Bilal Nasir
-Adithya Swarna
+Rohit Chandran,
+Bilal Nasir,
+Adithya Swarna,
