@@ -124,10 +124,10 @@ def uniformCostSearch(problem):
     "*** YOUR CODE HERE ***"
     visited = []
     nodes = util.PriorityQueue()
-    nodes.push((problem.getStartState(), []) ,0)
+    nodes.push((problem.getStartState(), []), 0)
     while not nodes.isEmpty():
         n, actions = nodes.pop()
-        #print n,actions
+        # print n,actions
         if problem.isGoalState(n):
             return actions
         if n not in visited:
@@ -137,10 +137,11 @@ def uniformCostSearch(problem):
                 if coordinates not in visited:
                     directions = s[1]
                     newCost = actions + [directions]
-                    nodes.push((coordinates, newCost), problem.getCostOfActions(newCost))
+                    nodes.push((coordinates, newCost),
+                               problem.getCostOfActions(newCost))
         visited.append(n)
     return actions
-    #util.raiseNotDefined()
+    # util.raiseNotDefined()
 
 
 def nullHeuristic(state, problem=None):
@@ -154,7 +155,26 @@ def nullHeuristic(state, problem=None):
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    visited = []
+    nodes = util.PriorityQueue()
+    nodes.push((problem.getStartState(), []),
+               heuristic(problem.getStartState(), problem))
+    while not nodes.isEmpty():
+        n, actions = nodes.pop()
+        # print n,actions
+        if problem.isGoalState(n):
+            return actions
+        if n not in visited:
+            successors = problem.getSuccessors(n)
+            for s in successors:
+                coordinates = s[0]
+                if coordinates not in visited:
+                    directions = s[1]
+                    newCost = actions + [directions]
+                    nodes.push((coordinates, newCost),
+                               problem.getCostOfActions(newCost) + heuristic(coordinates, problem))
+        visited.append(n)
+    return actions
 
 
 # Abbreviations
