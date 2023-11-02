@@ -114,9 +114,7 @@ def depthFirstSearch(problem):
 
 
 def breadthFirstSearch(problem):
-    """Search the shallowest nodes in the search tree first."""
-    "*** YOUR CODE HERE ***"
-        """Search the shallowest nodes in the search tree first."""
+    """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
     frontier = util.Queue()
     visited = []
