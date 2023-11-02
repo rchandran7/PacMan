@@ -9,7 +9,8 @@ Adithya Swarna
 ![image](https://github.com/rchandran7/PacMan/assets/77090910/ee6b0a62-4ae5-4c35-a628-5a4c0d50db6b)
 
 ### Breadth First Search
-1. 
+<img width="554" alt="BFS" src="https://github.com/rchandran7/PacMan/assets/95551739/8bf779a6-d67f-47b8-b5ad-1d7945ca6e8b">
+
 
 ## A* Search
 ![image](https://github.com/rchandran7/PacMan/assets/77090910/8cb7d14a-a29b-400e-bdcd-4fa52964d337)
