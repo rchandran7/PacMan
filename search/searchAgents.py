@@ -302,7 +302,10 @@ class CornersProblem(search.SearchProblem):
         Returns whether this search state is a goal state of the problem.
         """
         "*** YOUR CODE HERE ***"
-        return len(state[1]) == 4
+        if len(state[1]) == 4:
+            return True
+        else:
+            return False
         
 
     def getSuccessors(self, state):
