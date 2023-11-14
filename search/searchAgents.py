@@ -11,7 +11,6 @@
 # Student side autograding was added by Brad Miller, Nick Hay, and
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
-
 """
 This file contains all of the agents that can be selected to control Pacman.  To
 select an agent, use the '-p' option when running pacman.py.  Arguments can be
@@ -489,7 +488,27 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    return 0
+    foodList = foodGrid.asList()
+    food_visited = []
+    total_cost = 0
+    for i in foodList:
+        food_visited.append(i) # (x,y)
+
+    if not food_visited:
+        return 0
+
+    while food_visited:
+        min_dist = float('inf')
+        for food in food_visited:
+            eucDist = util.manhattanDistance(position, food)
+            if eucDist < min_dist:
+                min_dist = eucDist
+                closest_food = food
+        dist_to_nearest_food = util.manhattanDistance(position, closest_food)
+        food_visited.remove(closest_food)
+        total_cost += dist_to_nearest_food
+        position = closest_food
+    return total_cost
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
